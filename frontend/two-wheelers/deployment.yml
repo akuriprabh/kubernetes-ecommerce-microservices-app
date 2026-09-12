@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-wheelers-deployment
+  labels:
+    app: two-wheelers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: two-wheelers
+  template:
+    metadata:
+      labels:
+        app: two-wheelers
+    spec:
+      containers:
+      - name: two-wheelers
+        image: 975050238435.dkr.ecr.us-east-1.amazonaws.com/shopping-site-two-wheelers:9883a13ea8cce1d151f6c18f219372cb1b88beb2
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: two-wheelers-service
+  labels:
+    app: two-wheelers
+spec:
+  type: ClusterIP
+  selector:
+    app: two-wheelers
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
