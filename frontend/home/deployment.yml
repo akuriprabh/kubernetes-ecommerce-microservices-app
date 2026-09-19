@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: home
-        image: 975050238435.dkr.ecr.us-east-1.amazonaws.com/shopping-site-home:9883a13ea8cce1d151f6c18f219372cb1b88beb2
+        image: 767124095217.dkr.ecr.us-east-1.amazonaws.com/shopping-site-home:ee400726a04358f75ee10059d314583f439bae40
         ports:
         - containerPort: 80
 ---
